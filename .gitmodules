@@ -1,0 +1,3 @@
+[submodule "idun-stack"]
+	path = idun-stack
+	url = git@github.com:Tdude/idun-stack.git
