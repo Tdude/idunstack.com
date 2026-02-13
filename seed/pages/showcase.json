@@ -1,0 +1,82 @@
+{
+    "title": "Showcase",
+    "slug": "showcase",
+    "excerpt": "See the Idun CMS in action on real websites.",
+    "is_home": false,
+    "content_enabled": false,
+    "comments_enabled": false,
+    "show_title": false,
+    "menu_visible": true,
+    "status": "PUBLISHED",
+    "layout_template": "DEFAULT",
+    "meta_title": "Showcase — Idun CMS in the wild",
+    "meta_description": "Real websites built with the Idun CMS. See what fast, clean, and honest looks like.",
+    "modules": [
+      {
+        "type": "hero",
+        "order": 0,
+        "settings": {
+          "title": "See it in action.",
+          "subtitle": "Real sites. Real speed. No demo trickery.",
+          "text_alignment": "center",
+          "height": "medium",
+          "background_color": "#1a1a2e",
+          "title_size": "normal",
+          "title_weight": "bold",
+          "title_font": "sans",
+          "subtitle_size": "lg",
+          "subtitle_weight": "medium",
+          "subtitle_font": "sans"
+        }
+      },
+      {
+        "type": "card_grid",
+        "order": 1,
+        "settings": {
+          "heading": "Built with Idun",
+          "description": "Every site below runs on the Idun CMS. Same engine, different personality.",
+          "columns": 2,
+          "gap": "lg",
+          "show_backgrounds": true,
+          "card_title_size": "2xl",
+          "card_subtitle_size": "md",
+          "cards": [
+            {
+              "title": "Rebel Kayaks",
+              "subtitle": "Kayak community & future shop. Articles, events, e-commerce, kayak designer \u2014 all built on Idun. The site that started it all.",
+              "image_url": "",
+              "link": "https://rebelkayaks.eu",
+              "new_tab": true
+            },
+            {
+              "title": "Your site?",
+              "subtitle": "We\u2019re looking for early adopters who want a fast, clean website without the usual CMS headaches. Get in touch.",
+              "image_url": "",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "content",
+        "order": 2,
+        "settings": {
+          "content": "<h2 style=\"text-align:center\">What you get out of the box</h2><p style=\"text-align:center\">Every Idun site comes with these capabilities. Toggle on what you need.</p><table><thead><tr><th>Feature</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Pages & Blog</strong></td><td>Visual editor with modules \u2014 hero, cards, galleries, CTAs. No code needed.</td></tr><tr><td><strong>Contact Forms</strong></td><td>Build forms in the admin. Submissions, confirmations, email notifications.</td></tr><tr><td><strong>E-commerce</strong></td><td>Products, categories, cart, checkout. Stripe payments.</td></tr><tr><td><strong>Online Courses</strong></td><td>Create and sell courses. Video, text, certificates.</td></tr><tr><td><strong>Email Campaigns</strong></td><td>Compose, template, send, and track. Built right in.</td></tr><tr><td><strong>Multi-language</strong></td><td>Translate any page. DeepL integration for auto-translation.</td></tr><tr><td><strong>AI Assistant</strong></td><td>Hugin helps you write, edit, and manage content.</td></tr><tr><td><strong>Analytics</strong></td><td>Privacy-respecting Umami analytics. No cookie banners needed.</td></tr><tr><td><strong>User Management</strong></td><td>Roles, permissions, invitations, GDPR compliance. All built in.</td></tr></tbody></table>",
+          "width": "medium"
+        }
+      },
+      {
+        "type": "cta",
+        "order": 3,
+        "settings": {
+          "title": "Want your site on this page?",
+          "description": "We\u2019d love to build it for you. Early adopters get our best attention.",
+          "button_text": "Let\u2019s talk",
+          "button_link": "/contact",
+          "button_style": "primary",
+          "background_color": "#1a1a2e",
+          "text_color": "#ffffff"
+        }
+      }
+    ]
+}

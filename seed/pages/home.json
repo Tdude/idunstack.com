@@ -1,0 +1,96 @@
+{
+    "title": "Idun Works",
+    "slug": "home",
+    "excerpt": "Small studio, big ideas. We build fast, beautiful websites that you actually own.",
+    "is_home": true,
+    "content_enabled": false,
+    "comments_enabled": false,
+    "show_title": false,
+    "status": "PUBLISHED",
+    "layout_template": "DEFAULT",
+    "meta_title": "Idun Works — Websites that are fast, honest, and yours",
+    "meta_description": "We build blazingly fast websites with the Idun CMS. No bloat, no lock-in, no surprises.",
+    "modules": [
+      {
+        "type": "hero",
+        "order": 0,
+        "settings": {
+          "title": "Websites that are fast, honest, and yours.",
+          "subtitle": "No bloat. No lock-in. No surprises.",
+          "text_alignment": "center",
+          "height": "large",
+          "background_color": "#1a1a2e",
+          "overlay_opacity": 0.4,
+          "title_size": "normal",
+          "title_weight": "bold",
+          "title_font": "sans",
+          "title_effect": "none",
+          "title_tracking": "normal",
+          "subtitle_size": "lg",
+          "subtitle_weight": "medium",
+          "subtitle_font": "sans",
+          "button_style": "primary"
+        }
+      },
+      {
+        "type": "card_grid",
+        "order": 1,
+        "settings": {
+          "heading": "Why Idun?",
+          "description": "We got tired of bloated platforms that promise everything and deliver headaches. So we built our own.",
+          "columns": 4,
+          "gap": "md",
+          "show_backgrounds": true,
+          "card_title_size": "xl",
+          "card_subtitle_size": "md",
+          "cards": [
+            {
+              "title": "\ud83d\ude80 Blazing Fast",
+              "subtitle": "Built on modern tech, not 20-year-old PHP spaghetti. Your visitors feel the difference.",
+              "image_url": "",
+              "link": "#fast"
+            },
+            {
+              "title": "\ud83d\udd13 No Lock-in",
+              "subtitle": "Your site, your data, your code. Walk away anytime \u2014 but you won't want to.",
+              "image_url": "",
+              "link": "#freedom"
+            },
+            {
+              "title": "\ud83d\udcb8 Honest Pricing",
+              "subtitle": "What you see is what you pay. No surprise upsells, no premium tiers for basic features.",
+              "image_url": "",
+              "link": "#pricing"
+            },
+            {
+              "title": "\ud83e\uddf9 Zero Bloat",
+              "subtitle": "No 47 plugins to load a contact form. Toggle what you need on, leave the rest off.",
+              "image_url": "",
+              "link": "#clean"
+            }
+          ]
+        }
+      },
+      {
+        "type": "content",
+        "order": 2,
+        "settings": {
+          "content": "<h2 style=\"text-align:center\">25 years. One dev. One AI. No BS.</h2><p style=\"text-align:center\">We've installed, configured, cursed at, and contributed to roughly 30 different CMS platforms over 25 years. WordPress, Drupal, Joomla, Ghost, Strapi, Sanity \u2014 you name it, we've built on it.</p><p style=\"text-align:center\">They all start with \u201cthis is the future\u201d and end with lock-in, bloat, and compromise. So we built <strong>Idun</strong> \u2014 a CMS that does what you actually need, blazingly fast, without the baggage.</p><p style=\"text-align:center\">Tibbe brings 25 years of web craft. Buttler brings tireless AI precision. Together, we build websites that respect both the maker and the visitor.</p>",
+          "width": "medium"
+        }
+      },
+      {
+        "type": "cta",
+        "order": 3,
+        "settings": {
+          "title": "Ready for a site that doesn't suck?",
+          "description": "Tell us what you need. We'll tell you honestly if we're the right fit.",
+          "button_text": "Get in touch",
+          "button_link": "/contact",
+          "button_style": "primary",
+          "background_color": "#1a1a2e",
+          "text_color": "#ffffff"
+        }
+      }
+    ]
+}

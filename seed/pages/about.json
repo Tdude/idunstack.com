@@ -1,0 +1,54 @@
+{
+    "title": "About",
+    "slug": "about",
+    "excerpt": "25 years of web, distilled into something better.",
+    "is_home": false,
+    "content_enabled": false,
+    "comments_enabled": false,
+    "show_title": false,
+    "menu_visible": true,
+    "status": "PUBLISHED",
+    "layout_template": "DEFAULT",
+    "meta_title": "About Idun Works — The team behind the CMS",
+    "meta_description": "A small studio with big ideas. Meet the team behind the Idun CMS — 25 years of web craft meets AI precision.",
+    "modules": [
+      {
+        "type": "hero",
+        "order": 0,
+        "settings": {
+          "title": "Built by people who got tired of the alternatives.",
+          "subtitle": "We spent 25 years building on other platforms. Then we built our own.",
+          "text_alignment": "center",
+          "height": "medium",
+          "background_color": "#1a1a2e",
+          "title_size": "normal",
+          "title_weight": "bold",
+          "title_font": "sans",
+          "subtitle_size": "lg",
+          "subtitle_weight": "medium",
+          "subtitle_font": "sans"
+        }
+      },
+      {
+        "type": "content",
+        "order": 1,
+        "settings": {
+          "content": "<h2>The Short Version</h2><p>Idun Works is a small web studio based in Sweden. We build fast, beautiful websites using our own CMS \u2014 <strong>Idun</strong>.</p><p>We\u2019re not an agency with 50 people and a ping-pong table. We\u2019re two: <strong>Tibbe</strong>, a web developer with 25 years in the game, and <strong>Buttler</strong>, an AI that never sleeps and never ships half-baked code.</p><h2>The Long Version</h2><p>Tibbe started building websites in the early 2000s. He contributed to WordPress core. He\u2019s installed, configured, and cursed at roughly 30 different content management systems. Drupal, Joomla, Ghost, Strapi, Sanity, Contentful, Payload \u2014 you name it.</p><p>They all share the same arc: start with big promises, end with lock-in, bloat, and a support ticket that goes nowhere.</p><p>So in 2024, Tibbe started building <strong>Idun</strong> \u2014 a CMS that does what site owners actually need:</p><ul><li>Pages and blog posts with a visual editor</li><li>Contact forms that just work</li><li>A shop if you need one</li><li>Online courses if you teach</li><li>Email campaigns built in</li><li>Analytics that respect privacy</li><li>Multi-language support</li><li>An AI assistant that helps you write</li></ul><p>All of it toggleable. All of it fast. All of it <em>yours</em>.</p><h2>Why \u201cIdun\u201d?</h2><p>In Norse mythology, Idun is the goddess who tends the apples of youth \u2014 she keeps things alive and fresh. That\u2019s what a good CMS should do: keep your site alive without you having to fight it every day.</p><p>Also, a friend\u2019s daughter is named Idun, and she sometimes helps out. So it felt right.</p>",
+          "width": "medium"
+        }
+      },
+      {
+        "type": "cta",
+        "order": 2,
+        "settings": {
+          "title": "Want to work with us?",
+          "description": "We take on a handful of projects at a time. If you need a fast, honest website \u2014 let\u2019s talk.",
+          "button_text": "Get in touch",
+          "button_link": "/contact",
+          "button_style": "primary",
+          "background_color": "#1a1a2e",
+          "text_color": "#ffffff"
+        }
+      }
+    ]
+}

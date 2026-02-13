@@ -1,0 +1,41 @@
+{
+    "title": "Contact",
+    "slug": "contact",
+    "excerpt": "Get in touch with Idun Works.",
+    "is_home": false,
+    "content_enabled": false,
+    "comments_enabled": false,
+    "show_title": false,
+    "menu_visible": true,
+    "status": "PUBLISHED",
+    "layout_template": "DEFAULT",
+    "meta_title": "Contact Idun Works",
+    "meta_description": "Tell us about your project. We build fast, honest websites with the Idun CMS.",
+    "modules": [
+      {
+        "type": "hero",
+        "order": 0,
+        "settings": {
+          "title": "Let\u2019s build something.",
+          "subtitle": "Tell us what you need. No sales pitch, just honest answers.",
+          "text_alignment": "center",
+          "height": "small",
+          "background_color": "#1a1a2e",
+          "title_size": "normal",
+          "title_weight": "bold",
+          "title_font": "sans",
+          "subtitle_size": "lg",
+          "subtitle_weight": "medium",
+          "subtitle_font": "sans"
+        }
+      },
+      {
+        "type": "content",
+        "order": 1,
+        "settings": {
+          "content": "<h2 style=\"text-align:center\">How to reach us</h2><p style=\"text-align:center\">\ud83d\udce7 <strong>hello@idunworks.com</strong></p><p style=\"text-align:center\">Or find us on social media:</p><p style=\"text-align:center\"><a href=\"https://instagram.com/idunworks\">Instagram</a> \u00b7 <a href=\"https://facebook.com/idunworks\">Facebook</a> \u00b7 <a href=\"https://x.com/idunworks\">X / Twitter</a> \u00b7 <a href=\"https://linkedin.com/company/idunworks\">LinkedIn</a></p><hr><h3 style=\"text-align:center\">What we need from you</h3><p>To give you a useful answer quickly, tell us:</p><ul><li><strong>What kind of site?</strong> \u2014 Business, community, shop, portfolio, course platform?</li><li><strong>Existing site?</strong> \u2014 Are we rebuilding or starting fresh?</li><li><strong>Timeline?</strong> \u2014 When do you need it?</li><li><strong>Budget range?</strong> \u2014 Helps us scope honestly. We won\u2019t upsell.</li></ul><p>We typically respond within 24 hours. Often much sooner \u2014 Buttler doesn\u2019t sleep.</p>",
+          "width": "medium"
+        }
+      }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "title": "The Idun CMS",
+    "slug": "idun",
+    "excerpt": "A CMS that does what you need, without the baggage.",
+    "is_home": false,
+    "content_enabled": false,
+    "comments_enabled": false,
+    "show_title": false,
+    "menu_visible": true,
+    "status": "PUBLISHED",
+    "layout_template": "DEFAULT",
+    "meta_title": "The Idun CMS \u2014 Fast, modular, honest",
+    "meta_description": "A modern CMS built with FastAPI and Svelte. Modular, fast, multi-language, with built-in shop, courses, email, and analytics.",
+    "modules": [
+      {
+        "type": "hero",
+        "order": 0,
+        "settings": {
+          "title": "Meet Idun.",
+          "subtitle": "A CMS built by someone who got tired of all the others.",
+          "text_alignment": "center",
+          "height": "medium",
+          "background_color": "#1a1a2e",
+          "title_size": "normal",
+          "title_weight": "bold",
+          "title_font": "sans",
+          "subtitle_size": "lg",
+          "subtitle_weight": "medium",
+          "subtitle_font": "sans"
+        }
+      },
+      {
+        "type": "content",
+        "order": 1,
+        "settings": {
+          "content": "<h2>What makes Idun different?</h2><p>Most CMS platforms start simple and get complicated. Idun stays simple \u2014 because complexity is a choice, not a requirement.</p><h3>\ud83c\udfdb\ufe0f Modular by design</h3><p>Every feature is a module you can toggle on or off. Need a shop? Flip a switch. Online courses? Toggle it on. Don\u2019t need payments? Leave it off. Your site only runs what it uses.</p><h3>\u26a1 Actually fast</h3><p>Idun runs on <strong>FastAPI</strong> (Python) and <strong>Svelte 5</strong> (JavaScript). That means server-side rendering, instant page loads, and a backend that handles thousands of requests without breaking a sweat. No PHP. No Node.js spaghetti.</p><h3>\ud83c\udf0d Multi-language from day one</h3><p>Every page can be translated. DeepL integration handles auto-translation. Heimdall (our translation module) manages versions per language. Built for Europe, works everywhere.</p><h3>\ud83c\udfa8 Theming that actually works</h3><p>Pick a starter theme, adjust colors with OKLCH sliders, tweak spacing and radius \u2014 all from the admin panel. No CSS files to edit, no child themes to maintain. Your brand, your way.</p><h3>\ud83d\udd12 Security and privacy built in</h3><p>RBAC (role-based access control), GDPR compliance tools, audit logs, privacy-respecting analytics via Umami. No cookie consent banners needed.</p><h3>\ud83e\udd16 AI that helps, not replaces</h3><p>Hugin, our AI assistant, lives in the admin panel. It helps you write content, suggests improvements, and answers questions about your site. It\u2019s a tool, not a gimmick.</p>",
+          "width": "medium"
+        }
+      },
+      {
+        "type": "card_grid",
+        "order": 2,
+        "settings": {
+          "heading": "The Tech Stack",
+          "description": "For the curious and the technical.",
+          "columns": 3,
+          "gap": "md",
+          "show_backgrounds": true,
+          "card_title_size": "xl",
+          "card_subtitle_size": "md",
+          "cards": [
+            {
+              "title": "FastAPI",
+              "subtitle": "Python backend. Async, typed, documented. Each module is its own microservice.",
+              "image_url": "",
+              "link": "https://fastapi.tiangolo.com"
+            },
+            {
+              "title": "Svelte 5",
+              "subtitle": "Modern frontend with runes. Server-side rendered. Tiny bundles. Instant interactions.",
+              "image_url": "",
+              "link": "https://svelte.dev"
+            },
+            {
+              "title": "PostgreSQL",
+              "subtitle": "Rock-solid database. Your data is yours. Export it anytime, no proprietary formats.",
+              "image_url": "",
+              "link": "https://postgresql.org"
+            },
+            {
+              "title": "Docker",
+              "subtitle": "One command to deploy. Blue-green zero-downtime deploys included.",
+              "image_url": "",
+              "link": "https://docker.com"
+            },
+            {
+              "title": "Umami",
+              "subtitle": "Privacy-first analytics. No cookies, no consent banners, full GDPR compliance.",
+              "image_url": "",
+              "link": "https://umami.is"
+            },
+            {
+              "title": "Stripe",
+              "subtitle": "Payments that work. Products, subscriptions, invoices. Toggle it on when you need it.",
+              "image_url": "",
+              "link": "https://stripe.com"
+            }
+          ]
+        }
+      },
+      {
+        "type": "cta",
+        "order": 3,
+        "settings": {
+          "title": "Want Idun for your project?",
+          "description": "We\u2019re onboarding early adopters now. Be one of the first to run your site on something genuinely better.",
+          "button_text": "Get in touch",
+          "button_link": "/contact",
+          "button_style": "primary",
+          "background_color": "#1a1a2e",
+          "text_color": "#ffffff"
+        }
+      }
+    ]
+}
