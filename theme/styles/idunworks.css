@@ -1,0 +1,106 @@
+/* IdunWorks Custom Styles */
+
+/* Hero section enhancements */
+.hero-idunworks {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-idunworks::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"><path d="m0 2 30 0 0 30-30 0z"/></svg>');
+  opacity: 0.3;
+}
+
+/* Tech stack cards */
+.tech-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+.tech-card h3 {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-heading);
+  margin-bottom: 0.5rem;
+}
+
+.tech-card .tech-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-tech-stack);
+}
+
+/* Code blocks for tech articles */
+.prose pre {
+  background: var(--color-primary);
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  background: #f1f5f9;
+  color: var(--color-accent);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* Feature highlights */
+.feature-highlight {
+  background: linear-gradient(90deg, transparent 0%, var(--color-cta) 2%, transparent 100%);
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-cta);
+}
+
+/* Stats/metrics */
+.metric {
+  text-align: center;
+  padding: 1rem;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-cta);
+  display: block;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tech-card {
+    padding: 1rem;
+  }
+  
+  .hero-idunworks {
+    padding: 2rem 0;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+}

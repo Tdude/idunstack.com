@@ -1,0 +1,71 @@
+/* IdunWorks Custom Color Scheme */
+:root {
+  /* Brand colors */
+  --color-primary: #1a1a2e;
+  --color-accent: #16213e;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  
+  /* Interactive colors */
+  --color-cta: #2563eb;
+  --color-cta-hover: #1d4ed8;
+  --color-tech-stack: #f59e0b;
+  
+  /* Semantic colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Typography */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-heading: 600;
+  --font-weight-body: 400;
+  
+  /* Layout */
+  --container-max-width: 1200px;
+  --section-padding-y: 4rem;
+  --section-padding-x: 1.5rem;
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f172a;
+    --color-text: #e2e8f0;
+    --color-primary: #1e293b;
+    --color-accent: #334155;
+  }
+}
+
+/* IdunWorks specific utility classes */
+.text-tech-stack {
+  color: var(--color-tech-stack);
+}
+
+.bg-tech-stack {
+  background-color: var(--color-tech-stack);
+}
+
+.border-tech-stack {
+  border-color: var(--color-tech-stack);
+}
+
+.cta-button {
+  background-color: var(--color-cta);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: var(--color-cta-hover);
+}
