@@ -1,0 +1,18 @@
+{
+    "title": "Setting Up a FastAPI Server That Actually Works",
+    "slug": "fastapi-server-setup",
+    "excerpt": "Skip the tutorials that break in production. Here's how to set up FastAPI properly from day one.",
+    "is_home": false,
+    "content_enabled": true,
+    "comments_enabled": true,
+    "show_title": true,
+    "menu_visible": false,
+    "status": "PUBLISHED",
+    "layout_template": "POST",
+    "meta_title": "Setting Up FastAPI Server - Real-world Setup Guide",
+    "meta_description": "A practical guide to FastAPI server setup that works in production, not just in tutorials.",
+    "category": "devops",
+    "author": "Tibbe & Brett",
+    "published_at": "2026-02-19T08:00:00Z",
+    "content": "<p>Most FastAPI tutorials get you running in 5 minutes. Then you spend 5 hours figuring out why it breaks in production.</p><p>We've deployed dozens of FastAPI servers. Here's what actually works.</p><h2>The Setup That Doesn't Lie to You</h2><p>First, forget <code>uvicorn main:app --reload</code> for anything beyond your laptop. Here's the production-ready structure:</p><pre><code>your-api/\n├── app/\n│   ├── __init__.py\n│   ├── main.py\n│   ├── models/\n│   ├── routers/\n│   └── dependencies.py\n├── requirements.txt\n├── docker-compose.yml\n└── gunicorn.conf.py</code></pre><h2>gunicorn.conf.py - The Real MVP</h2><p>This file is where tutorials fail you:</p><pre><code>bind = \"0.0.0.0:8000\"\nworkers = 4\nworker_class = \"uvicorn.workers.UvicornWorker\"\nmax_requests = 1000\nmax_requests_jitter = 50\npreload_app = True\ntimeout = 30\nkeepalive = 2</code></pre><p><strong>Why these settings matter:</strong></p><ul><li><code>max_requests</code> prevents memory leaks from killing your server</li><li><code>preload_app</code> saves memory when you scale workers</li><li><code>timeout = 30</code> because your database queries <em>will</em> sometimes be slow</li></ul><h2>Environment Variables That Don't Suck</h2><p>Use Pydantic's BaseSettings. It's not optional:</p><pre><code>from pydantic_settings import BaseSettings\n\nclass Settings(BaseSettings):\n    database_url: str\n    secret_key: str\n    debug: bool = False\n    \n    class Config:\n        env_file = \".env\"</code></pre><h2>Docker That Works</h2><p>Multi-stage builds aren't just for show-offs:</p><pre><code>FROM python:3.11-slim as builder\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --user -r requirements.txt\n\nFROM python:3.11-slim\nWORKDIR /app\nCOPY --from=builder /root/.local /root/.local\nCOPY . .\nCMD [\"gunicorn\", \"app.main:app\"]</code></pre><h2>The Part Nobody Talks About</h2><p>Health checks. Your container orchestrator needs to know if your app is actually working:</p><pre><code>@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"healthy\", \"timestamp\": datetime.utcnow()}</code></pre><p>Add this to your Docker Compose:</p><pre><code>healthcheck:\n  test: [\"CMD\", \"curl\", \"-f\", \"http://localhost:8000/health\"]\n  interval: 30s\n  timeout: 10s\n  retries: 3</code></pre><h2>What We Learned the Hard Way</h2><p>After deploying FastAPI in production for 3 years:</p><ul><li><strong>CORS will bite you.</strong> Configure it early, not when your frontend team starts swearing.</li><li><strong>Database connections leak.</strong> Use connection pooling from day one.</li><li><strong>Logs matter.</strong> Structure them. Your future debugging self will thank you.</li><li><strong>Version your API.</strong> /v1/ in the URL saves relationships later.</li></ul><p>Skip the pain. Start with this setup.</p>"
+}
