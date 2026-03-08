@@ -1,3 +1,9 @@
+networks:
+  # External-facing network: only services that browsers or public clients reach
+  frontend:
+  # Internal network: inter-service communication only, never exposed outside Docker
+  backend:
+
 services:
   db:
     image: postgres:16-alpine
@@ -8,9 +14,12 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${DB_PORT:-5453}:5432"
+      # Bind to loopback only — the database must never be reachable from outside the host
+      - "127.0.0.1:${DB_PORT:-5453}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h 127.0.0.1"]
       interval: 3s
@@ -36,6 +45,9 @@ services:
       - "${IDUN_API_PORT:-8031}:8000"
     volumes:
       - idun_uploads:/app/static/uploads
+    networks:
+      - frontend
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -51,6 +63,8 @@ services:
       context: ./idun-stack/idun-ui
       dockerfile: Dockerfile
       args:
+        # SECURITY: DISABLE_CSRF_CHECK must be 0 (the default) in production.
+        # Set to 1 only in local dev when running behind a non-standard proxy.
         - DISABLE_CSRF_CHECK=${DISABLE_CSRF_CHECK:-0}
         - PUBLIC_API_URL=${PUBLIC_API_URL}
         - PUBLIC_SITE_URL=${PUBLIC_SITE_URL}
@@ -86,6 +100,9 @@ services:
       - "${UI_PORT:-5175}:3000"
     volumes:
       - idun_ui_data:/app/data
+    networks:
+      - frontend
+      - backend
     depends_on:
       idun-api:
         condition: service_healthy
@@ -102,7 +119,10 @@ services:
     environment:
       DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     ports:
-      - "${BIFROST_API_PORT:-8032}:8000"
+      # Bind to loopback only — internal service, not publicly reachable
+      - "127.0.0.1:${BIFROST_API_PORT:-8032}:8000"
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -126,7 +146,10 @@ services:
       SKJOLD_ADMIN_PASSWORD: ${SKJOLD_ADMIN_PASSWORD}
       SKJOLD_ADMIN_RESET: ${SKJOLD_ADMIN_RESET}
     ports:
-      - "${SKJOLD_API_PORT:-8033}:8000"
+      # Bind to loopback only — internal auth service, not publicly reachable
+      - "127.0.0.1:${SKJOLD_API_PORT:-8033}:8000"
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -150,9 +173,12 @@ services:
       ELEARNING_MAX_VIDEO_SIZE_MB: ${ELEARNING_MAX_VIDEO_SIZE_MB:-500}
       ELEARNING_CERTIFICATE_ENABLED: ${ELEARNING_CERTIFICATE_ENABLED:-true}
     ports:
-      - "${MIMER_API_PORT:-8034}:8000"
+      # Bind to loopback only — internal e-learning service, not publicly reachable
+      - "127.0.0.1:${MIMER_API_PORT:-8034}:8000"
     volumes:
       - mimer_media:/app/media
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -173,7 +199,10 @@ services:
       DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       SKJOLD_BASE_URL: ${SKJOLD_BASE_URL:-http://skjold-api:8000}
     ports:
-      - "${HEDEBY_API_PORT:-8035}:8000"
+      # Bind to loopback only — internal shop service, not publicly reachable
+      - "127.0.0.1:${HEDEBY_API_PORT:-8035}:8000"
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -199,7 +228,10 @@ services:
       OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.2:3b}
       SKJOLD_URL: ${SKJOLD_BASE_URL:-http://skjold-api:8000}
     ports:
-      - "${HUGIN_API_PORT:-8036}:8000"
+      # Bind to loopback only — internal AI assistant service, not publicly reachable
+      - "127.0.0.1:${HUGIN_API_PORT:-8036}:8000"
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy
@@ -221,7 +253,10 @@ services:
       SKJOLD_BASE_URL: ${SKJOLD_BASE_URL:-http://skjold-api:8000}
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
     ports:
-      - "${SKIIN_API_PORT:-8037}:8000"
+      # Bind to loopback only — internal kayak-designer service, not publicly reachable
+      - "127.0.0.1:${SKIIN_API_PORT:-8037}:8000"
+    networks:
+      - backend
     depends_on:
       db:
         condition: service_healthy

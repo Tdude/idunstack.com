@@ -13,6 +13,18 @@ THEME_TARGET="idun-stack/idun-ui/src/lib/themes/${SITE_NAME}"
 
 echo "🎨 Building ${SITE_NAME} theme..."
 
+# Portable in-place sed: macOS requires an explicit (possibly empty) backup suffix;
+# GNU sed on Linux does not accept the empty-string form 'sed -i ""'.
+sed_inplace() {
+    if sed --version >/dev/null 2>&1; then
+        # GNU sed (Linux)
+        sed -i "$@"
+    else
+        # BSD sed (macOS)
+        sed -i '' "$@"
+    fi
+}
+
 # Check if we're in the right directory
 if [ ! -f ".env.${SITE_NAME}" ]; then
     echo "❌ Error: Must run from site root (should contain .env.${SITE_NAME})"
@@ -91,11 +103,11 @@ cp "$REGISTRY_FILE" "$REGISTRY_FILE.backup"
 # Check if theme is already registered
 if ! grep -q "import.*${SITE_NAME}Theme" "$REGISTRY_FILE"; then
     # Add import
-    sed -i '' "/import.*blogTheme.*from/a\\
+    sed_inplace "/import.*blogTheme.*from/a\\
 import { theme as ${SITE_NAME}Theme } from '../themes/${SITE_NAME}';" "$REGISTRY_FILE"
     
     # Add case to switch statement
-    sed -i '' "/case 'blog':/a\\
+    sed_inplace "/case 'blog':/a\\
     case '${SITE_NAME}':\\
       return ${SITE_NAME}Theme as unknown as Theme;" "$REGISTRY_FILE"
     
@@ -110,7 +122,7 @@ ENV_FILE=".env.${SITE_NAME}"
 
 # Add or update VITE_THEME setting
 if grep -q "VITE_THEME=" "$ENV_FILE"; then
-    sed -i '' "s/VITE_THEME=.*/VITE_THEME=${SITE_NAME}/" "$ENV_FILE"
+    sed_inplace "s/VITE_THEME=.*/VITE_THEME=${SITE_NAME}/" "$ENV_FILE"
     echo "   → Updated VITE_THEME=${SITE_NAME}"
 else
     echo "" >> "$ENV_FILE"
@@ -124,7 +136,7 @@ echo "🔗 Setting up CSS injection..."
 APP_HTML="idun-stack/idun-ui/src/app.html"
 if [ -f "$APP_HTML" ] && ! grep -q "site-theme.css" "$APP_HTML"; then
     # Add CSS link in head section (using printf to handle newlines properly)
-    sed -i '' 's|</head>|    <link rel="stylesheet" href="/theme/site-theme.css" />\'$'\n''</head>|' "$APP_HTML"
+    sed_inplace 's|</head>|    <link rel="stylesheet" href="/theme/site-theme.css" />\n</head>|' "$APP_HTML"
     echo "   → Added CSS injection to app.html"
 fi
 

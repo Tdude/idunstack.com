@@ -8,6 +8,16 @@ AUTH_URL="${2:-http://localhost:8053}"
 EMAIL="${SEED_EMAIL:-admin@idunworks.com}"
 PASSWORD="${SEED_PASSWORD:-ChangeMe_123}"
 
+# Refuse to run with the well-known default password unless explicitly allowed.
+# Set SEED_ALLOW_DEFAULT_PASSWORD=1 only in a throw-away local dev environment.
+if [ "$PASSWORD" = "ChangeMe_123" ] && [ "${SEED_ALLOW_DEFAULT_PASSWORD:-0}" != "1" ]; then
+  echo "❌ SECURITY: The default seed password 'ChangeMe_123' must not be used."
+  echo "   Set the SEED_PASSWORD environment variable to a strong, unique password."
+  echo "   If you intentionally want the default in a local dev environment, set:"
+  echo "     SEED_ALLOW_DEFAULT_PASSWORD=1"
+  exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "🌱 Seeding idunworks.com..."
